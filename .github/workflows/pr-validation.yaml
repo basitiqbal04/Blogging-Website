@@ -26,7 +26,7 @@ jobs:
         run: npx htmlhint "src/**/*.html"
 
       - name: Lint CSS
-        run: npx stylelint "src/styles/**/*.css" # Ensure the correct path for your CSS files
+        run: npx stylelint "styles/**/*.css"
 
   build:
     name: Build Static Website
@@ -40,12 +40,8 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Install Dependencies
-        run: |
-          npm install
-
       - name: Install Parcel
-        run: npm install parcel # Alternatively, include Parcel as a devDependency in your package.json
+        run: npm install parcel
 
       - name: Build Static Website
         run: npx parcel build src/home.html --dist-dir dist --public-url ./
